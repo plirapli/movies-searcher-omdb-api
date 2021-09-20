@@ -4,25 +4,25 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'body': 'Poppins',
+        body: 'Poppins',
       },
       maxWidth: {
-        'card': '12rem',
+        card: '12rem',
       },
       minWidth: {
-        'card': '10rem',
+        card: '10rem',
       },
       gridTemplateColumns: {
-         'card': 'repeat(auto-fit, minmax(210px, 1fr))',
+        card: 'repeat(auto-fit, minmax(176px, 1fr))',
       },
-      fill: theme => ({
-        'red': theme('colors.red.500'),
-        'gray': theme('colors.gray.400'),
-      })
+      fill: (theme) => ({
+        red: theme('colors.red.500'),
+        gray: theme('colors.gray.400'),
+      }),
     },
   },
   variants: {
     extend: {},
   },
   plugins: [],
-}
+};

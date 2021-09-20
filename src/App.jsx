@@ -6,7 +6,7 @@ import MovieList from './components/MovieList';
 function App() {
   const [dark, setDark] = useState(false);
   const [searchCompleted, setSearchCompleted] = useState(false);
-  const [foundMovie, setFoundMovie] = useState(false);
+  const [foundMovie, setFoundMovie] = useState(true);
 
   const [movieTitle, setMovieTitle] = useState('');
   const [selectedID, setSelectedID] = useState('');
@@ -20,10 +20,10 @@ function App() {
       .then((res) => res.json())
       .then((data) => {
         if (data.Response === 'True') {
-          setFoundMovie(false);
+          setFoundMovie(true);
           return setMovies(data.Search);
         } else {
-          setFoundMovie(true);
+          setFoundMovie(false);
           setMovies([]);
         }
       })
@@ -37,9 +37,9 @@ function App() {
   };
 
   return (
-    <div className={`${dark ? 'dark' : ''} w-full`}>
-      <div className="min-h-screen border border-red-500 p-4 sm:p-8 font-body dark:bg-gray-800">
-        <div className="max-w-screen-md">
+    <div className={`${dark ? 'dark' : ''}`}>
+      <div className="min-h-screen p-4 sm:p-8 flex flex-col items-center font-body dark:bg-gray-800">
+        <div className="max-w-screen-md w-full">
           <div className="w-full mb-4 flex justify-between">
             <h1 className="text-2xl font-medium dark:text-white">
               Search Your Movie
@@ -47,7 +47,7 @@ function App() {
 
             <div className="flex items-center">
               <span
-                className={`mr-3 font-bold ${
+                className={`mr-3 text-sm font-bold text-opacity-30 ${
                   dark ? 'text-white' : 'text-black'
                 }`}
               >
@@ -60,8 +60,8 @@ function App() {
             <Form setMovieTitle={setMovieTitle} searchHandler={searchHandler} />
           </div>
         </div>
-        {/* <section className="w-full grid grid-cols-card gap-6">
-          {foundMovie && (
+        <section className="w-full grid grid-cols-card gap-4 mt-8">
+          {!foundMovie && (
             <div className="text-lg opacity-50 text-black dark:text-white">
               Movie not found
             </div>
@@ -74,7 +74,7 @@ function App() {
               setSelectedID={setSelectedID}
             />
           ))}
-        </section> */}
+        </section>
       </div>
     </div>
   );
