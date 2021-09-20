@@ -13,7 +13,7 @@ module.exports = {
         card: '10rem',
       },
       gridTemplateColumns: {
-        card: 'repeat(auto-fit, minmax(176px, 1fr))',
+        card: 'repeat(auto-fit, minmax(198px, 1fr))',
       },
       fill: (theme) => ({
         red: theme('colors.red.500'),

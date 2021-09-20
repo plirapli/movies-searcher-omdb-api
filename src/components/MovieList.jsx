@@ -1,22 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
 export default function MovieList({ movie, selectedID, setSelectedID }) {
-  const key = '65159463&i';
-
   // const [movieDetails, setMovieDetails] = useState({});
   // const [genres, setGenres] = useState([]);
-
-  // const getMovieDetails = async () => {
-  //   await fetch(`http://www.omdbapi.com/?apikey=${key}=${movie.imdbID}`)
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       const arr = data.Genre.split(', ');
-  //       const dur = convDur(data.Runtime);
-  //       setGenres(arr);
-  //       return setMovieDetails({ ...data, Runtime: dur });
-  //     })
-  //     .catch((err) => console.log(err));
-  // };
 
   // const clickDetailHandler = () => {
   //   setSelectedID(movie.imdbID);
@@ -71,9 +57,11 @@ export default function MovieList({ movie, selectedID, setSelectedID }) {
         </div>
       </div>
       {/* Movie Details */}
-      <div className="w-full mt-2">
-        <p className="">Lorem ipsum</p>
-        <p className="font-bold text-sm text-black text-opacity-40">2020</p>
+      <div className="w-full mt-2 dark:text-white">
+        <p className="">{movie.Title}</p>
+        <p className="font-bold text-sm text-black dark:text-white text-opacity-40">
+          {movie.Year}
+        </p>
       </div>
     </div>
   );
